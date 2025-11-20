@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Керована анімація</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            margin: 40px auto;
+            transition: all 0.3s ease; /* плавна анімація */
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Анімований блок</h2>
+
+<div id="box"></div>
+
+<button onclick="moveLeft()">Вліво</button>
+<button onclick="moveRight()">Вправо</button>
+<button onclick="moveUp()">Вгору</button>
+<button onclick="moveDown()">Вниз</button>
+<button onclick="changeColor()">Змінити колір</button>
+
+<script>
+    // Початкові координати блока
+    let posX = 0;
+    let posY = 0;
+
+    // Отримуємо доступ до HTML елемента
+    const box = document.getElementById("box");
+
+    function moveLeft() {
+        posX -= 20;
+        box.style.left = posX + "px";
+    }
+
+    function moveRight() {
+        posX += 20;
+        box.style.left = posX + "px";
+    }
+
+    function moveUp() {
+        posY -= 20;
+        box.style.top = posY + "px";
+    }
+
+    function moveDown() {
+        posY += 20;
+        box.style.top = posY + "px";
+    }
+
+    function changeColor() {
+        const colors = ["red", "blue", "green", "orange", "purple"];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        box.style.backgroundColor = randomColor;
+    }
+</script>
+
+</body>
+</html>
